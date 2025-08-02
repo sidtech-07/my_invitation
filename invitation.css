@@ -1,0 +1,679 @@
+:root {
+    --primary: #6a11cb;
+    --primary-light: #7e57c2;
+    --secondary: #00c6ff;
+    --accent: #ff2d75;
+    --dark: #0f0c29;
+    --background: #1a1a2e;
+    --card-bg: rgba(19, 19, 48, 0.8);
+    --text: #e6e6ff;
+    --light-text: #ffffff;
+    --success: #00ff9d;
+    --warning: #ffcc00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--background) 100%);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Circuit board background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(106, 17, 203, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(106, 17, 203, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -1;
+}
+
+/* Floating particles */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--secondary);
+    opacity: 0.3;
+    animation: float 15s infinite linear;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    z-index: 10;
+}
+
+/* Header with animation */
+.header {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--light-text);
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255,255,255,0.2), 
+        transparent);
+    animation: shine 3s infinite;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    text-shadow: 0 0 10px var(--secondary), 0 0 20px rgba(0, 198, 255, 0.7);
+    animation: fadeInDown 1s ease-out, glow 2s infinite alternate;
+}
+
+.subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    opacity: 0.9;
+    position: relative;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    color: var(--accent);
+    text-shadow: 0 0 5px rgba(255, 45, 117, 0.7);
+}
+
+.department {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: var(--light-text);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.content {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.chief-guest-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid rgba(0, 198, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.chief-guest-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    animation: scanline 4s linear infinite;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    text-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-field {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--primary-light);
+    border-radius: 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2rem;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+.input-field label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(230, 230, 255, 0.7);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 15px;
+    font-size: 0.9rem;
+    background: var(--card-bg);
+    padding: 0 10px;
+    color: var(--secondary);
+}
+
+.next-btn-container {
+    margin-top: 20px;
+}
+
+/* Welcome message section */
+.welcome-message {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid rgba(255, 45, 117, 0.3);
+    box-shadow: 0 0 20px rgba(255, 45, 117, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.welcome-message::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+.welcome-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--accent);
+    text-shadow: 0 0 5px rgba(255, 45, 117, 0.5);
+}
+
+.welcome-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    min-height: 150px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(100, 100, 255, 0.2);
+    text-align: left;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.3rem;
+    background: var(--secondary);
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+}
+
+/* Signature Section */
+.signature-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid rgba(255, 45, 117, 0.3);
+    box-shadow: 0 0 20px rgba(255, 45, 117, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.signature-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+.signature-label {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+    font-weight: 500;
+    text-shadow: 0 0 5px rgba(255, 45, 117, 0.5);
+}
+
+#signature-pad {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px dashed var(--accent);
+    border-radius: 10px;
+    cursor: crosshair;
+    width: 100%;
+    height: 200px;
+    touch-action: none;
+    transition: all 0.3s;
+}
+
+#signature-pad:active {
+    border-color: var(--secondary);
+}
+
+.signature-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 45, 117, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--primary-light);
+}
+
+.btn-secondary:hover {
+    background: rgba(126, 87, 194, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+}
+
+/* Hidden invitation section */
+.invitation-details {
+    margin: 40px 0 20px;
+    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.invitation-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--success), transparent);
+    animation: scanline 2s linear infinite;
+}
+
+.invitation-details.revealed {
+    opacity: 1;
+    max-height: 2000px;
+    animation: glitch 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.invitation-title {
+    color: var(--success);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.detail-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 100, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--secondary);
+}
+
+.detail-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.detail-card:hover::after {
+    transform: scaleX(1);
+}
+
+.detail-card h3 {
+    color: var(--secondary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+}
+
+.detail-card h3 i {
+    color: var(--accent);
+    font-size: 1.6rem;
+}
+
+.detail-card p {
+    font-size: 1.2rem;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.final-message {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid var(--primary-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    display: none;
+}
+
+.footer {
+    padding: 25px;
+    text-align: center;
+    color: rgba(230, 230, 255, 0.7);
+    font-size: 1rem;
+    border-top: 1px solid rgba(100, 100, 255, 0.1);
+}
+
+.footer p {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Confetti styles */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-5px, 5px);
+    }
+    40% {
+        transform: translate(-5px, -5px);
+    }
+    60% {
+        transform: translate(5px, 5px);
+    }
+    80% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px var(--secondary), 0 0 20px rgba(0, 198, 255, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 15px var(--secondary), 0 0 30px rgba(0, 198, 255, 0.9);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) translateX(1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .content, .signature-section, .invitation-details {
+        padding: 20px 15px;
+    }
+    
+    .chief-guest-section, .welcome-message {
+        padding: 20px;
+    }
+    
+    .section-title, .invitation-title {
+        font-size: 1.6rem;
+    }
+    
+    .welcome-title {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .header {
+        padding: 30px 15px;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .signature-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESA Freshers' Party - Electronics Student Association</title>
+    <link rel="stylesheet" href="invitation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">ESA Fresher's grand welcome function.</h1>
+            <p class="subtitle">Electronics Student Association</p>
+            <p class="department">Department of Electronics.</p>
+        </div>
+        
+        <div class="content">
+            <div class="chief-guest-section" id="chief-guest-section">
+                <h2 class="section-title">Honorable Chief Guest</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="text" id="chief-guest" placeholder=" " autocomplete="off">
+                        <label for="chief-guest">Enter Chief Guest's Name</label>
+                    </div>
+                    <div class="next-btn-container">
+                        <button id="next-btn" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="welcome-message" id="welcome-message">
+                <h2 class="welcome-title">Welcome, <span id="guest-name"></span>!</h2>
+                <div class="welcome-text">
+                    <p id="typewriter-text"></p>
+                    <span class="cursor"></span>
+                </div>
+            </div>
+            
+            <div class="signature-section" id="signature-section">
+                <div class="signature-label">Please sign to reveal the invitation</div>
+                <canvas id="signature-pad"></canvas>
+                <div class="signature-actions">
+                    <button id="clear-btn" class="btn btn-secondary">Clear Signature</button>
+                    <button id="reveal-btn" class="btn btn-primary">Reveal Invitation</button>
+                </div>
+            </div>
+            
+            <div id="invitation-details" class="invitation-details">
+                <h2 class="invitation-title">Event Details</h2>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h3>📅 Date & Time</h3>
+                        <p>sunday, august 03, 2025<br>08:00 AM - 04:00 PM</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>📍 Venue</h3>
+                        <p>Anusaya Bai Hall<br>DDSGP<br>college Campus</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>👔 Dress Code</h3>
+                        <p>Tech Chic<br>Semi-formal with a tech twist</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>🎉 Special Events</h3>
+                        <p>Drawing competition<br>singing <br>fun games and dance</p>
+                    </div>
+                </div>
+                
+                <div class="final-message" id="final-message">
+                    <p>We are honored to have you as our chief guest for this special occasion. Your presence will inspire our new students as they embark on their journey in electronics. We look forward to celebrating with you!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Electronics Student Association | Department of Electronics.</p>
+        </div>
+    </div>
+
+    <script src="invitation.js"></script>
+</body>
+</html>
