@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         welcomeMessage.style.display = 'block';
         
         // Typewriter effect for welcome message
-        const message = `The Electronics Student Association is thrilled to invite you as the chief guest for our annual Freshers' Party. Your presence could inspire our students, and we would be honored by your presence on this special occasion.`;
+        const message = `The Electronics Student Association is thrilled to invite you as the chief guest for our annual Science Fiesta. Your presence could inspire our students, and we would be honored by your presence on this special occasion.`;
         
         typeText(typewriterText, message, 30, () => {
             // After typing is complete, show signature section
@@ -172,4 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
     }
+
 });
